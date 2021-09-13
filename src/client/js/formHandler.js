@@ -7,7 +7,7 @@ function handleSubmit(event) {
     if(Client.checkForURL(formText)) {
     console.log("::: Form Submitted :::")
 
-    postData('/api', {url: formText})
+    postData('http://localhost:8081/api', {url: formText})
 
     .then(function(res) {
         document.getElementById('polarity').innerHTML = 'Polarity: '+polarityChecker(res.score_tag);
@@ -25,6 +25,7 @@ const postData = async (url = "", data = {}) => {
     console.log('Analyzing:', data);
     const response = await fetch(url, {
         method: 'POST',
+        cache: "no-cache",
         credentials: 'same-origin',
         mode: 'cors',
         headers: {
