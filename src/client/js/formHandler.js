@@ -64,7 +64,7 @@ const polarityChecker = (score) => {
         case 'NONE':
             display = 'no sentiment';
     }
-    return display.toUpperCase();
+    return display;
 }
 
 export { handleSubmit }
